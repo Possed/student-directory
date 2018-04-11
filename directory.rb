@@ -17,14 +17,19 @@ def print_header
   puts "The students of Villains Academy"
   puts "-------------"
 end
+
 def print(students)
-  students.each do |student|
-    puts "#{student[:name]} (#{student[:cohort]} cohort)"
-  end
+   students.each_with_index do |student, i|
+     if (student[:name][0].downcase == 'a' && student[:name].length < 12)
+       puts "#{i+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+     end
+   end
 end
+
 def print_footer(students)
   puts "Overall, we have #{students.count} great students"
 end
+
 def input_students
   puts "Please enter the names of the students"
   puts "To finish just hit return twice"
